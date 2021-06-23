@@ -1,38 +1,99 @@
+/*
+ * Global styling
+ */
+ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+/*
+ * The Hangman Game
+ */
 .App {
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*
+ * The hidden word to find
+ */
+.mask {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*
+ * The letters of the hidden word
+ */
+.mask > li {
+    font-size: 4em;
+    min-width: 50px;
+    min-height: 50px;
+    line-height: 50px;
+    padding: 15px;
+    color: darkslategray;
+    display: inline-block;
+    text-align: center;
+    text-transform: capitalize;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/*
+ * Information on the length of the hidden word
+ */
+.word-length {
+    font-size: 2em;
+    color: lightgray;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+/*
+ * The keyboard
+ */
+.virtual-keyboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 500px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/*
+ * Keyboard buttons
+ */
+.virtual-keyboard > li {
+    margin: 5px;
+    padding: 10px;
+    font-size: 1.4em;
+    min-width: 35px;
+    min-height: 35px;
+    line-height: 35px;
+    color: darkslategray;
+    font-weight: bold;
+    border: 1px solid gray;
+    border-radius: 3px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+}
+
+/*
+ * Disabled keyboard buttons
+ */
+.virtual-keyboard > li.disabled {
+    background-color: lightgray;
+    cursor: default;
+    opacity: 0.5;
+}
+
+/*
+ * Hover state of keyboard active buttons
+ */
+.virtual-keyboard > li:hover:not(.disabled) {
+    background-color: red;
 }
